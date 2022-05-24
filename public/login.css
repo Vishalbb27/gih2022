@@ -1,0 +1,121 @@
+body{
+    background-color: #ffffff;
+    margin: 0;
+    padding: 5% 5% 0 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    background:linear-gradient(90deg, #FFEDE1 100%,  #FFEDE1 0%);
+    
+    box-shadow: #FE9C67 10px 16px 20px -20px , -10px 16px 20px -20px #FE9C67;
+    height: 700px;
+    width: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main:before, .main:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #FE9C67;
+  -webkit-box-shadow: 0 35px 20px #FE9C67;
+  -moz-box-shadow: 0 35px 20px #FE9C67;
+  box-shadow: 0 35px 20px #FE9C67;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.main:after
+{
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
+.leftMain{
+    padding: 15% 0%;
+    text-align: center;
+    width: 50%;
+    
+}
+.leftMain .login h1{
+    font-size: 3em;
+    color: #FF5300;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0 0 5px #FF5300;
+    margin-top: -5%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    
+}
+input{
+    margin: 10px;
+    border: none;
+    border-bottom: 2px solid #ffc1a0;
+    color: #FF5300;
+    outline: none;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    width: 250px;
+    padding: 1.2%;
+
+}
+::placeholder{
+    text-align: center;
+    color: #ffc1a0;
+    font-weight: normal;
+}
+input[type="submit"]{
+    background-color: #FFDDC7;
+    border-radius: 10px;
+    padding: 1% 4%;
+    margin-top: 4%;
+    transition-duration: 0.5s;
+    font-weight: bold;
+    width: max-content;
+}
+input[type="submit"]:hover{
+    background-color: #FF5300;
+    color: white;
+    box-shadow: 0 0 10px #FF5300;
+    text-shadow: 0 0 10px white;
+    transition-duration: 0.5s;
+}
+
+footer{
+    margin-top: 3%;
+    align-items: center;
+    padding: 10px 0 0 0;
+    color: #FF5300;
+    font-size: 1.1em;
+    font-family: 'Courier New', Courier, monospace;
+}
+footer p{
+    margin: 0;
+}

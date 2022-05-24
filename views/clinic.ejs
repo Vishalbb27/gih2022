@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+    <link rel="stylesheet" href="clinic.css">
+    <script src="https://kit.fontawesome.com/1da53a3171.js" crossorigin="anonymous"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="left">
+            <img src="/assets/images/logo.png" alt="" width="70" height="70">
+            <p>ALR-DOC</p>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-user"></i>
+            <p>Dr. Rajesh</p>
+        </div>
+    </nav>
+    
+    <section class="main_patient">
+        <div class="leftmain">
+            <p> <a href="./doctor">Patient</a></p>
+            <p> <a href="./clinic">Pharmacy</a></p>
+        </div>
+        <div class="rightmain">
+            <% for(var i=0;i<resultArray.length;i++){ %>
+
+            <div class="patient">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <p><%=resultArray[i].C_NAME%></p>
+                <p><%=resultArray[i].C_TABAVAILABLE%></p>
+                <p><%=resultArray[i].C_AREA%>, <%=resultArray[i].C_CITY%></p>
+            </div>
+            <%}%>
+
+            
+            
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+    <link rel="stylesheet" href="doctor.css">
+    <script src="https://kit.fontawesome.com/1da53a3171.js" crossorigin="anonymous"></script>
+    <!-- FONTS -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="left">
+            <img src="/assets/images/logo.png" alt="" width="70" height="70">
+            <p>ALR-DOC</p>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-user"></i>
+            <p>Dr. Rajesh</p>
+        </div>
+    </nav>
+    
+    <section class="main_patient">
+        <div class="leftmain">
+            <p> <a href="./doctor">Patient</a></p>
+            <p> <a href="./clinic">Pharmacy</a></p>
+        </div>
+        <div class="rightmain">
+            <% for(var i=0;i<resultArray.length;i++){ %>
+            <div class="patient" style="text-align: left;">
+                <i class="fa fa-user" aria-hidden="true" style="text-align: center;"></i>
+                <p id="name">Name :<%=resultArray[i].P_NAME%></p>
+                <p>Age : <%=resultArray[i].AGE%></p>
+                <p>Gender : <%=resultArray[i].P_GENDER%></p>
+                <p id="temp"><span> Temperature : </span><%=temp%></p>
+                <p id="batt"></p>
+                <p id="location"></p>
+            </div>
+            <%}%>
+            
+        </div>
+        <a href="" id="hid_pat" hidden></a>
+    </section>
+    <script>
+        
+        var loc = document.getElementById("location");
+        navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = position.coords.latitude + "," + position.coords.longitude;
+        var long = position.coords.longitude;
+        var lat = position.coords.latitude;
+        var link = "https://maps.google.com/?q=" + lat + "," + long;
+        loc.innerHTML =`<a href=${link} style="color: #E43337; cursor: pointer;" target="_blank">Location: &#128279;</a>`
+      });
+    
+      var sett=document.getElementsByClassName("patient")[0];
+      
+
+      var bat = document.getElementById("batt");
+      navigator.getBattery().then(function (battery) {
+        bat.innerHTML = `Heart Rate: ${battery.level * 100} bpm`;
+        if(parseInt(battery.level*100 ) >= 65){
+            sett.style.border="5px solid red";
+            var audio = new Audio('/assets/beep.mp3');
+            audio.play();
+            var pat = document.getElementById("hid_pat");
+            
+            var x = document.getElementById("name");
+            var y = x.innerText
+            y = y.slice(6,)
+            y = "/name/"+y
+            
+            pat.setAttribute("href",y);
+            pat.click()
+        }
+      });
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+</body>
+</html>
